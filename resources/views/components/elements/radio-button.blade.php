@@ -1,3 +1,3 @@
-<div>
-    <input type="radio">
-</div>
+@props(['class'])
+
+<input type="radio" class="{{ $class }}">

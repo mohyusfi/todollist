@@ -22,6 +22,14 @@ class Todolist extends Model
         "team_id"
     ];
 
+    protected function casts(): array
+    {
+        return [
+            "created_at" => "datetime",
+            "updated_at" => "datetime"
+        ];
+    }
+
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by', 'id');

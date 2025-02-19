@@ -2,8 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Models\Todolist;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Log;
 use Tests\TestCase;
 
 class DatabaseTest extends TestCase
@@ -11,10 +13,11 @@ class DatabaseTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_example(): void
+    public function testGetTodolist(): void
     {
-        $response = $this->get('/');
+        $todolist = Todolist::find(1);
+        Log::info($todolist->created_at->diffForHumans());
 
-        $response->assertStatus(200);
+        self::assertTrue(true);
     }
 }

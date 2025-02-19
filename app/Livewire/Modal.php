@@ -7,17 +7,24 @@ use Livewire\Component;
 class Modal extends Component
 {
     public bool $isOpen = false;
-    public string $btnOpen, $btnClose, $btnSubmit;
+    public string $btnOpen, $btnSubmit;
     public string $titleModal;
     public string $method;
+    public array $dropDownItems;
 
-    public function mount(string $btnOpen, string $btnClose, string $btnSubmit, string $titleModal, string $method): void
+    public function mount(
+        string $btnOpen,
+        string $btnSubmit,
+        string $titleModal,
+        string $method,
+        array $dropDownItems
+        ): void
     {
         $this->btnOpen = $btnOpen;
-        $this->btnClose = $btnClose;
         $this->btnSubmit = $btnSubmit;
         $this->titleModal = $titleModal;
         $this->method = $method;
+        $this->dropDownItems = $dropDownItems;
     }
 
     public function openModal(): void

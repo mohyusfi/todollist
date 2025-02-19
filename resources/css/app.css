@@ -12,3 +12,10 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+
+/* Untuk Chrome, Edge, dan Safari */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.5); /* Ubah warna ikon */
+    cursor: pointer; /* Bikin lebih interaktif */
+}
+
