@@ -4,9 +4,11 @@ namespace App\Livewire\Pages;
 
 use App\Models\Todolist;
 use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
+// #[Layout(null)]
 class Dashboard extends Component
 {
     public ?Collection $todos;

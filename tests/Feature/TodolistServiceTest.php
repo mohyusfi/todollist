@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Todolist;
 use App\Models\User;
 use Tests\TestCase;
 use App\Services\TodolistService;
@@ -36,21 +37,9 @@ class TodolistServiceTest extends TestCase
             "created_by" => $user->id
         ];
 
-        $todo = $this->todoService()->save($data);
-        self::assertNotNull($todo);
-        self::assertEquals([
-            "title" => "sample title",
-            "description" => "sample description",
-            "status" => "to-do",
-            "priority" => "medium",
-            "created_by" => 1
-        ], [
-            "title" => $todo->title,
-            "description" => $todo->description,
-            "status" => $todo->status,
-            "priority" => $todo->priority,
-            "created_by" => $todo->created_by
-        ]);
+        $isSuccess = $this->todoService()->save($data);
+
+        self::assertTrue($isSuccess);
     }
 
     public function testDelete(): void
@@ -60,7 +49,7 @@ class TodolistServiceTest extends TestCase
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => "rahasia123",
-            'remember_token' => 1388912,                    
+            'remember_token' => 1388912,
         ];
 
         $user = User::create($user);
@@ -73,7 +62,7 @@ class TodolistServiceTest extends TestCase
             "created_by" => $user->id
         ];
 
-        $todo = $this->todoService()->save($data);
+        $todo = Todolist::create($data);
         $isSuccess= $this->todoService()->delete($todo->id);
 
         self::assertTrue($isSuccess);

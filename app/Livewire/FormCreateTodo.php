@@ -10,39 +10,36 @@ use Livewire\Component;
 class FormCreateTodo extends Component
 {
     public CreateTodo $form;
-    // public string $title;
     public string $method;
     public string $btnSubmit;
     public array $dropDownItems;
-
-    // private TodolistService $todolistService;
 
     public function mount(
         string $method,
         string $btnSubmit,
         array $dropDownItems,
-        // TodolistService $todolistService
         ): void
     {
         $this->method = $method;
         $this->btnSubmit = $btnSubmit;
         $this->dropDownItems = $dropDownItems;
-        // $this->todolistService = $todolistService;
     }
 
     public function create(TodolistService $todolistService)
     {
-        $result = $this->validate();
+        $result = $this->form->validate();
 
         $user_id = Auth::user()->id;
 
         $todo = array_merge($result, ["created_by" => $user_id]);
 
-        $todolistService->save($todo);
+        if ($todolistService->save($todo)) {
+            $this->dispatch('loads');
+            session()->flash('success', 'berhasil menambah todo');
+            return;
+        }
 
-        $this->dispatch('loads');
-
-        return session()->flash('success', 'berhasil menambah todo');
+        $this->addError('error', 'terjadi kesalahan');
     }
     public function render()
     {

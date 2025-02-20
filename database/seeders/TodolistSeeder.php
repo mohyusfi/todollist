@@ -13,6 +13,6 @@ class TodolistSeeder extends Seeder
      */
     public function run(): void
     {
-        Todolist::factory()->create();
+        Todolist::factory()->make();
     }
 }
