@@ -40,6 +40,8 @@ class FormCreateTodo extends Component
 
         $todolistService->save($todo);
 
+        $this->dispatch('loads');
+
         return session()->flash('success', 'berhasil menambah todo');
     }
     public function render()

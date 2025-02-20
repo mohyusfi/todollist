@@ -12,7 +12,6 @@
                         "todo" => $todo,
                     ])
                 @endforeach
-                {{-- @dd($todos->all()) --}}
             </div>
             <livewire:modal
                 :dropDownItems="['low', 'medium', 'high']"

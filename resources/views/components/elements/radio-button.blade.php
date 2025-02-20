@@ -1,3 +1,3 @@
-@props(['class'])
+{{-- @props(['class', 'value', 'model']) --}}
 
-<input type="radio" class="{{ $class }}">
+<input type="radio" {{ $attributes->merge() }}>

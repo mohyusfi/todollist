@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Pages\Dashboard;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,7 +10,8 @@ Route::get('/', function () {
 });
 
 Route::controller(PageController::class)->group(function() {
-    Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+    // Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+    Route::get('/ex', Dashboard::class)->name('dashboard');
 })->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
