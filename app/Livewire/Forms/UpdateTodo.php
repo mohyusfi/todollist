@@ -2,11 +2,11 @@
 
 namespace App\Livewire\Forms;
 
+use Livewire\Form;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Validate;
-use Livewire\Form;
 
-class CreateTodo extends Form
+class UpdateTodo extends Form
 {
     public string $title;
     public ?string $description = null;

@@ -43,7 +43,7 @@
 
     <div class="flex gap-3">
         <x-elements.btn-modal
-            logo="create"
+            logo="update"
             type="submit"
             class="btn btn-accent"
         >{{ $btnSubmit }}</x-elements.btn-modal>

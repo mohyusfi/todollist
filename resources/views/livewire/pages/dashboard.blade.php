@@ -13,10 +13,11 @@
             @endforeach
         </div>
         <livewire:modal
+            for="create"
             :dropDownItems="['low', 'medium', 'high']"
             titleModal="Insert New Todo"
-            btnOpen="add todo"
-            btnSubmit="Submit"
+            btnOpen="create"
+            btnSubmit="create"
             method="create" />
     </div>
 </div>

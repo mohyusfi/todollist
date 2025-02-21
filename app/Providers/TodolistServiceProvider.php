@@ -12,11 +12,10 @@ class TodolistServiceProvider extends ServiceProvider implements DeferrableProvi
     /**
      * Register services.
      */
+    // public array $singletons = [TodolistService::class => TodolistServiceImpl::class];
     public function register(): void
     {
-        $this->app->singleton(TodolistService::class, function($app): TodolistServiceImpl {
-            return new TodolistServiceImpl();
-        });
+        $this->app->singleton(TodolistService::class, TodolistServiceImpl::class);
     }
 
     /**
@@ -29,8 +28,6 @@ class TodolistServiceProvider extends ServiceProvider implements DeferrableProvi
 
     public function provides(): array
     {
-        return [
-            TodolistService::class => TodolistServiceImpl::class
-        ];
+        return [TodolistService::class];
     }
 }

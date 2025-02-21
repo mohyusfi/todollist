@@ -21,7 +21,9 @@ class Dashboard extends Component
     #[On('loads')]
     public function loadTodo(): void
     {
-        $this->todos = Todolist::all();
+        $this->todos = Todolist::orderByRaw("
+            FIELD(priority, 'high', 'medium', 'low')
+        ")->get();
     }
     public function render()
     {

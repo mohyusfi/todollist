@@ -39,7 +39,8 @@ class FormCreateTodo extends Component
             return;
         }
 
-        $this->addError('error', 'terjadi kesalahan');
+        $this->addError('error', 'terjadi kesalahan serve');
+        return;
     }
     public function render()
     {
