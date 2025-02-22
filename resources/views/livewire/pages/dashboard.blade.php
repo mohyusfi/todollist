@@ -19,5 +19,11 @@
             btnOpen="create"
             btnSubmit="create"
             method="create" />
+            {{-- <livewire:btn-modal
+                :id="null"
+                logo="create"
+                :btnName="create"
+                class="btn btn-accent"
+            /> --}}
     </div>
 </div>

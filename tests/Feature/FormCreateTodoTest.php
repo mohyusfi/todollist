@@ -30,7 +30,7 @@ class FormCreateTodoTest extends TestCase
             ->assertSeeText("low")
             ->assertSeeText("medium")
             ->assertSeeText("high")
-            ->assertSeeText("Submit");
+            ->assertSeeText("add");
     }
 
     public function test_component_existOn_page(): void

@@ -20,7 +20,7 @@
 @endphp
 
 
-<div class="grid grid-cols-3 grid-cols-[3em_minmax(80%,_1fr)_1fr] border-b-2 border-gray-400 bg-blue-50 rounded-md">
+<div class="grid grid-cols-[3em_1fr] md:grid-cols-[3em_minmax(80%,_1fr)_1fr]  border-b-2 border-gray-400 bg-blue-50 rounded-md">
     <div class="justify-self-center">
         <x-elements.radio-button
             class="cursor-pointer transition-all duration-[.2s]"
@@ -28,7 +28,7 @@
             {{ $attributes->whereStartsWith('wire:') }}
             />
     </div>
-    <div class="grid grid-rows-3 grid-rows-[1.7em_2fr_2em] py-1" wire:poll.60s>
+    <div class="grid grid-rows-[1.7em_2fr_2em] py-1" wire:poll.60s>
         <div class="text-gray-900 font-serif flex gap-2 md:gap-1 align-self-center">
             <h2>{{ $title }}</h2>
             <span>|</span>
@@ -42,7 +42,15 @@
             <cite class="text-red-400 text-xs">{{ $created }}</cite>
         </div>
     </div>
-    <div class="">
-        
+    <div class="hidden md:flex justify-center items-center  w-full h-full">
+        {{-- <div class="btn btn-primary">n</div> --}}
+        <livewire:modal
+            :id="$id"
+            for="update"
+            :dropDownItems="['low', 'medium', 'high']"
+            titleModal="Update TODO"
+            btnOpen="update"
+            btnSubmit="update"
+            method="update" />
     </div>
 </div>

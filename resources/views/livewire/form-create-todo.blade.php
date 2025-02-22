@@ -43,9 +43,11 @@
 
     <div class="flex gap-3">
         <x-elements.btn-modal
+            usename="add"
             logo="create"
             type="submit"
+            btn="update"
             class="btn btn-accent"
-        >{{ $btnSubmit }}</x-elements.btn-modal>
+        />
     </div>
 </form>

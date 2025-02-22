@@ -2,16 +2,16 @@
     @if ($btnOpen == "create")
         <x-elements.btn-modal
             logo="create"
+            btn="create"
             wire:click="openModal"
-            class="btn btn-accent my-2">
-            {{ $btnOpen }}
-        </x-elements.btn-modal>
+            class="btn btn-accent my-2"
+            usename="add todo"/>
     @elseif ($btnOpen == "update")
         <x-elements.btn-modal
             logo="update"
             wire:click="openModal"
             styleLogo="w-[2em] h-[2em]"
-            class="btn btn-accent my-2" />
+            class="btn btn-accent" />
     @endif
 
     @if ($isOpen)
@@ -33,10 +33,11 @@
                         <livewire:form-update-todo
                             :btnSubmit="$btnSubmit"
                             :dropDownItems="$dropDownItems"
-                            :method="$method" />
+                            :method="$method"
+                            :id="$id" />
                         @break
                     @default
-                        
+
                 @endswitch
 
             </div>

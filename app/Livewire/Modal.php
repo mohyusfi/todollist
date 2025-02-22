@@ -2,10 +2,12 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Modal extends Component
 {
+    public string|int|null $id = null;
     public bool $isOpen = false;
     public string $for;
     public string $btnOpen, $btnSubmit;

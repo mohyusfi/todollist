@@ -14,7 +14,7 @@
         @endforeach
     @endif
     <x-elements.text-input
-        placeholder="Enter Your Title Todo"
+        placeholder="Update new todo"
         class="border-b-4 border-x-0 border-t-0 focus:ring-0 focus:outline-none w-[100%] text-black"
         type="text"
         wire:model="form.title"
@@ -37,15 +37,20 @@
         <x-dropdown-menu
             :items="$dropDownItems"
             dropDown="Priority"
+            :defaultValue="$olderTodo->priority"
             wire:model="form.priority"
             name="priority"/>
+
+            {{-- {{ $olderTodo->priority }} --}}
     </div>
 
     <div class="flex gap-3">
         <x-elements.btn-modal
             logo="update"
             type="submit"
+            btn="update"
+            usename="update"
             class="btn btn-accent"
-        >{{ $btnSubmit }}</x-elements.btn-modal>
+        />
     </div>
 </form>
